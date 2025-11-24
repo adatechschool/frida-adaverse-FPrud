@@ -13,10 +13,9 @@ Adaverse une plateforme de partage pour les différents projets des étudiants d
 - Initiation communication de la bdd serverless sur Neon
 - Conception du wireframe (voir conception/wireframe.excalidraw)
 - Conception théorique de la bdd
+- Initiation du CRUD avec Drizzle
 
 ## Liste des tâches restantes :
-- Création des branches
-- Initiation du CRUD avec Drizzle
 - Création des routes
 - Création d’une seed de données
 - Création du formulaire en pop-up
@@ -24,4 +23,3 @@ Adaverse une plateforme de partage pour les différents projets des étudiants d
 - Création de la page de détails
 - Création des chemins dynamiques en front
 - Application du style avec Tailwind
-- 
