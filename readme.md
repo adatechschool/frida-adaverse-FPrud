@@ -11,9 +11,13 @@ Adaverse une plateforme de partage pour les différents projets des étudiants d
 - Installation de l'environnement Next.js
 - Installation de l'ORM Drizzle
 - Initiation communication de la bdd serverless sur Neon
-- Conception du wireframe (voir conception/wireframe.excalidraw)
+- Conception du wireframe (voir /conception/wireframe.excalidraw)
 - Conception théorique de la bdd
 - Initiation du CRUD avec Drizzle
+
+### 25/11/2025
+- Création des tables categories et promotions, directement en PgSQL sur Neon (scripts indiqués dans /src)
+- Créat
 
 ## Liste des tâches restantes :
 - Création des routes
