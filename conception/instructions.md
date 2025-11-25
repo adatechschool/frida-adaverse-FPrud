@@ -66,27 +66,27 @@ Pour mener à bien ce projet, il est nécessaire de maîtriser :
 
 ### Back / BDD
 
--   [ ] Je sais intégrer et utiliser une ORM avec NextJS
--   [ ] Je sais connecter mon ORM avec ma base de données
--   [ ] Je sais créer une base de donnée à partir d'un schéma
--   [ ] Je sais visualiser et modifier des données dans la base de données
--   [ ] Je comprends le fonctionnement d'un ORM (mapping object relationnel)
--   [ ] Je sais modéliser une base de données à partir d'un énoncé
--   [ ] Je comprends les avantages et les inconvénients que l'ORM apporte
--   [ ] J'arrive à implémenter mon ORM dans mon code
--   [ ] Je sais récupérer des données venant de plusieurs tables avec l'ORM (foreign keys)
--   [ ] Je sais faire un CRUD de ma donnée avec mon ORM
--   [ ] Je sais créer des routes api et des composants serveur dans NextJS
--   [ ] Je sais créer et exécuter des migrations
--   [ ] Je sais créer et manipuler des forms actions
+-   [☑️] Je sais intégrer et utiliser une ORM avec NextJS
+-   [☑️] Je sais connecter mon ORM avec ma base de données
+-   [☑️] Je sais créer une base de donnée à partir d'un schéma
+-   [☑️] Je sais visualiser et modifier des données dans la base de données
+-   [☑️] Je comprends le fonctionnement d'un ORM (mapping object relationnel)
+-   [☑️] Je sais modéliser une base de données à partir d'un énoncé
+-   [☑️] Je comprends les avantages et les inconvénients que l'ORM apporte
+-   [☑️] J'arrive à implémenter mon ORM dans mon code
+-   [☑️] Je sais récupérer des données venant de plusieurs tables avec l'ORM (foreign keys)
+-   [☑️] Je sais faire un CRUD de ma donnée avec mon ORM
+-   [☑️] Je sais créer des routes api et des composants serveur dans NextJS
+-   [☑️] Je sais créer et exécuter des migrations
+-   [☑️] Je sais créer et manipuler des forms actions
 
 ### Front
 
--   [ ] Je peux créer une page dans NextJS
--   [ ] Je comprends l'utilité du `"use client"`
--   [ ] Je comprends comment et quand utiliser useState et useEffect
--   [ ] Je sais fetch des routes API depuis une page NextJS
--   [ ] Je sais découper le code de mon projet en plusieurs fichiers
+-   [☑️] Je peux créer une page dans NextJS
+-   [☑️] Je comprends l'utilité du `"use client"`
+-   [☑️] Je comprends comment et quand utiliser useState et useEffect
+-   [☑️] Je sais fetch des routes API depuis une page NextJS
+-   [☑️] Je sais découper le code de mon projet en plusieurs fichiers
 -   [ ] Je comprends le système de routes de NextJS
 -   [ ] Je sais créer des routes dynamiques avec des paramètres d'URL
 -   [ ] Je sais récuperer le paramètre avec `params`
