@@ -4,27 +4,7 @@ import { useState, useEffect } from "react";
 import { getCategories } from "../api/categories";
 import { getProjects } from "../api/projects";
 import { ProjectCard } from "./ProjectCard";
-
-interface projectItem {
-    id: number;
-    title: string;
-    promotionName: string;
-    categoryName: string;
-    repositoryUrl: string;
-    demoUrl: string;
-    creationDate: string;
-}
-
-interface categoryItem {
-    id: number;
-    name: string;
-}
-
-const PLACEHOLDER_URL = "/project_picture_placeholder.png";
-
-const THUMBNAIL_SUFFIX = "/blob/main/thumbnail.png?raw=true";
-
-
+import { projectItem, categoryItem } from "../types";
 
 export const ProjectsSlideshow = () => {
 

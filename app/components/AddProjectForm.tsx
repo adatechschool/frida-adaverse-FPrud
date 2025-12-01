@@ -4,11 +4,7 @@ import { useState, useEffect } from "react";
 import { createProject } from "../api/projects";
 import { getCategories } from "../api/categories";
 import { getPromotions } from "../api/promotions";
-
-interface Item {
-    id: number;
-    name: string;
-}
+import {Item} from "../types";
 
 export const AddProjectForm = () => {
 

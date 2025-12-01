@@ -1,30 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { ProjectCardProps } from '../types';
 
-interface projectItem {
-    id: number;
-    title: string;
-    promotionName: string;
-    categoryName: string;
-    repositoryUrl: string;
-    demoUrl: string;
-    creationDate: string;
-}
 
-interface ProjectCardProps {
-    project: projectItem;
-    slicedTitle: (str: string, max: number) => string;
-}
-
-const PLACEHOLDER_URL = "/project_picture_placeholder.png";
 const THUMBNAIL_SUFFIX = "/blob/main/thumbnail.png?raw=true";
+const PLACEHOLDER_URL = "/project_picture_placeholder.png";
 
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, slicedTitle }) => {
     
-    const potentialThumbnailUrl = project.repositoryUrl + THUMBNAIL_SUFFIX;
+    const thumbnailUrl = project.repositoryUrl + THUMBNAIL_SUFFIX;
 
-    const [imageSrc, setImageSrc] = useState(potentialThumbnailUrl);
+    const [imageSrc, setImageSrc] = useState(thumbnailUrl);
 
     const handleImageError = () => {
         if (imageSrc !== PLACEHOLDER_URL) {
@@ -33,12 +21,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, slicedTitle }
     };
     
     useEffect(() => {
-        setImageSrc(potentialThumbnailUrl);
-    }, [potentialThumbnailUrl]); 
+        setImageSrc(thumbnailUrl);
+    }, [thumbnailUrl]); 
 
     return (
         <div id="project" className="flex flex-col w-xs h-3xs">
-            <h3>{slicedTitle(project.title, 20)}</h3>
+            <Link href={`/${project.path}`}><h3>{slicedTitle(project.title, 20)}</h3></Link>
             <Image
                 src={imageSrc}
                 alt={project.title}
@@ -49,7 +37,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, slicedTitle }
                 className='w-xs h-3xs object-cover'
             />
             <p className="text-justify">
-                Crée le {project.creationDate} par un·e élève de la promotion {project.promotionName} dans le cadre du projet {project.categoryName}
+                Projet créé le {project.creationDate} par un·e élève de la promotion {project.promotionName}, dans le cadre du projet {project.categoryName}.
             </p>
             <p id="projectInfos" className="flex flex-col">
                 <a href={project.repositoryUrl}>Consulter le répertoire</a>
