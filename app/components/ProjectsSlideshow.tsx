@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { getCategories } from "../api/categories";
 import { getProjects } from "../api/projects";
+import { ProjectCard } from "./ProjectCard";
 
 interface projectItem {
     id: number;
@@ -18,6 +19,12 @@ interface categoryItem {
     id: number;
     name: string;
 }
+
+const PLACEHOLDER_URL = "/project_picture_placeholder.png";
+
+const THUMBNAIL_SUFFIX = "/blob/main/thumbnail.png?raw=true";
+
+
 
 export const ProjectsSlideshow = () => {
 
@@ -39,36 +46,33 @@ export const ProjectsSlideshow = () => {
         loadData();
     }, []);
 
+    const slicedTitle = (str: string, max: number) => {
+        if (str.length <= max) {
+            return str;
+        }
+        return str.slice(0, max) + '...';
+    };
+
     return (
 
         <div id="projectsSlideshow" className="flex flex-col">
             {categories.map((category) => {
-                // 1. Filtrer les projets pour la catégorie actuelle
                 const filteredProjects = projects.filter(
                     (project) => project.categoryName === category.name
                 );
-
-                // 2. Condition de Masquage : Si aucun projet, on ne retourne rien (null)
                 if (filteredProjects.length === 0) {
                     return null;
                 }
-
-                // 3. Afficher la catégorie et les projets filtrés si la liste n'est pas vide
                 return (
-                    <div key={category.id} className="flex flex-col">
-                        <h1 id="categoryTitle">{category.name}</h1>
-
-                        <div id="projectsContainer" className="flex flex-row no-wrap">
+                    <div key={category.id} className="flex flex-col p-5">
+                        <h2 id="categoryTitle">{category.name}</h2>
+                        <div id="projectsContainer" className="flex flex-row flex-wrap gap-5 mt-2">
                             {filteredProjects.map((project) => (
-                                <div key={project.id} id="project" className="flex flex-col w-[250px]">
-                                    <h2>{project.title}</h2>
-                                    <img src="http://img.png" width="200px" height="120px" />
-                                    <p>Crée le {project.creationDate} par un·e élève de la promotion {project.promotionName} dans le cadre du projet {project.categoryName}</p>
-                                    <p id="projectInfos" className="flex flex-col">
-                                        <a href={project.repositoryUrl}>Consulter le répertoire</a>
-                                        <a href={project.demoUrl}>Essayer la démo</a>
-                                    </p>
-                                </div>
+                                <ProjectCard
+                                    key={project.id}
+                                    project={project}
+                                    slicedTitle={slicedTitle}
+                                />
                             ))}
                         </div>
                     </div>
