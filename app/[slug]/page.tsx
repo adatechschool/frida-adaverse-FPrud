@@ -1,6 +1,6 @@
 "use server";
 
-import { getProjectByPath } from "../api/projects";
+import { getProjectByPath } from "../actions/projects";
 
 interface ProjectPageProps {
   params: {

@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { createProject } from "../api/projects";
-import { getCategories } from "../api/categories";
-import { getPromotions } from "../api/promotions";
+import { createProject } from "../actions/projects";
+import { getCategories } from "../actions/categories";
+import { getPromotions } from "../actions/promotions";
 import { Item } from "../types";
 
 interface AddProjectFormProps {

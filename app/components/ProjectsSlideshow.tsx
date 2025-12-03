@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { getCategories } from "../api/categories";
-import { getProjects } from "../api/projects";
-import { getPromotions } from "../api/promotions";
+import { getCategories } from "../actions/categories";
+import { getProjects } from "../actions/projects";
+import { getPromotions } from "../actions/promotions";
 import { ProjectCard } from "./ProjectCard";
 import { Header } from "./Header";
 import { Modal } from "./Modal";
