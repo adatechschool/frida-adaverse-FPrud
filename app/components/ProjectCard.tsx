@@ -39,8 +39,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, slicedTitle }
                 Projet créé le {project.creationDate} par un·e élève de la promotion {project.promotionName}, dans le cadre du projet {project.categoryName}.
             </p>
             <p id="projectInfos" className="flex flex-col">
-                <a href={project.repositoryUrl}>Consulter le répertoire</a>
-                <a href={project.demoUrl}>Essayer la démo</a>
+                <a href={project.repositoryUrl} target='_blank'>Consulter le répertoire</a>
+                <a href={project.demoUrl} target='_blank'>Essayer la démo</a>
             </p>
         </div>
     );
