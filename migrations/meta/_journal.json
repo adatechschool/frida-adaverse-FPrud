@@ -15,6 +15,13 @@
       "when": 1764235913630,
       "tag": "0001_ambiguous_sauron",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1764767219222,
+      "tag": "0002_watery_blindfold",
+      "breakpoints": true
     }
   ]
 }

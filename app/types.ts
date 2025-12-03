@@ -2,10 +2,10 @@ export interface projectItem {
     id: number;
     title: string;
     path: string;
-    promotionId: number;
-    categoryId: number;
     promotionName: string;
+    promotionId: number;
     categoryName: string;
+    categoryId: number;
     repositoryUrl: string;
     demoUrl: string;
     creationDate: string;

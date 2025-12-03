@@ -26,8 +26,8 @@ export const projects = pgTable('projects', {
     path: text('path').notNull(),
     promotionId: integer('promotion_id').references(() => promotions.id).notNull(),
     categoryId: integer('category_id').references(() => categories.id).notNull(),
-    repositoryUrl: text('repository_url').notNull(),
-    demoUrl: text('demo_url').notNull(),
+    repositoryUrl: text('repository_url'),
+    demoUrl: text('demo_url'),
     creationDate: date('creation_date').notNull(),
     publicationDate: date('publication_date'),
 });

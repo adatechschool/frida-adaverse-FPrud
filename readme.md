@@ -32,9 +32,20 @@ Adaverse une plateforme de partage pour les différents projets des étudiants d
 - Filtre des projets qui n'apparaissent que dans la bonne catégorie
 - Apparition conditionnelle des catégories, si elles ne sont pas vides
 
-## Liste des tâches restantes :
+## 28/11/2025
 - Création d'une image placeholder
 - Récupération d'un fichier image nommé '/blob/main/thumbnail.png?raw=true', ajouté à l'url du repo githhub
+
+## 01/12/2025
 - Création de la page de détails
 - Création des chemins dynamiques en front
+
+## 02/12/2025
+- Filtre des projets affichés par promotion (menu déroulant)
+- Transformation du formulaire en pop-up
+
+## 03/12/2025
+- Affichage des projet dans l'ordre anti-chronologique (plus récent en premier)
 - Application du style avec Tailwind
+
+## Liste des tâches restantes :

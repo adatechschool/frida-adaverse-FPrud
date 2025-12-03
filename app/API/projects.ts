@@ -3,29 +3,27 @@
 import { db } from '@/lib/db';
 import { projects, NewProject, categories, promotions } from '@/lib/schema'
 import { eq } from 'drizzle-orm';
+import { projectItem } from "../types";
 
+// crée un chemin à partir du titre + id
 const generatePath = (title: string, id?: number): string => {
-    // 1. Nettoyage du titre
     const titleWithoutAccents = title
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase();
 
-    // 2. Création du slug de base
     const cleanedPath = titleWithoutAccents
         .replace(/\s+/g, '_')
         .replace(/[^a-z0-9_]/g, '');
 
-    // 3. Ajout de l'ID si disponible
     if (id) {
-        // Forme : slug_du_titre_123
         return `${cleanedPath}_${id}`;
     }
 
-    // Utilisé uniquement pour l'insertion initiale ou si l'ID n'est pas nécessaire
     return cleanedPath;
 };
 
+// assemble la saisie du formulaire dans un objet et l'envoit grace à Drizzle, puis récupère son id et modifie le chemin "path" avec title_id
 export async function createProject(formData: FormData) {
 
     const title = formData.get('title') as string;
@@ -98,6 +96,7 @@ export async function createProject(formData: FormData) {
     }
 }
 
+// récupère tous les projets
 export async function getProjects() {
     console.log("Début de l'action : getProjects");
 
@@ -130,41 +129,43 @@ export async function getProjects() {
     }
 }
 
-export async function getProjectByPath(path: string) {
-    console.log(`Début de l'action : getProjectByPath pour le chemin : ${path}`);
+// récupère un seul projet par son chemin "path"
+export async function getProjectByPath(path: string): Promise<{ success: boolean, data?: projectItem | null, error?: string }> {
+    console.log(`Début de l'action : getProjectByPath pour le chemin ${path}`);
 
     try {
-        const project = await db.select({
+        const projectDetails = await db.select({
             id: projects.id,
             title: projects.title,
+            path: projects.path,
             promotionName: promotions.name,
+            promotionId: projects.promotionId,
             categoryName: categories.name,
+            categoryId: projects.categoryId,
             repositoryUrl: projects.repositoryUrl,
             demoUrl: projects.demoUrl,
-            creationDate: projects.creationDate
+            creationDate: projects.creationDate,
         })
             .from(projects)
             .leftJoin(categories, eq(projects.categoryId, categories.id))
             .leftJoin(promotions, eq(projects.promotionId, promotions.id))
-            .where(eq(projects.path, path)) // Filtrer par le champ 'path'
-            .limit(1); // On s'attend à un seul résultat
+            .where(eq(projects.path, path))
+            .limit(1);
 
-        if (project.length === 0) {
-            return {
-                success: false,
-                error: `Projet introuvable avec le chemin : ${path}`
-            };
+        if (projectDetails.length === 0) {
+            return { success: true, data: null };
         }
 
         return {
             success: true,
-            data: project[0]
+            data: projectDetails[0] as projectItem
         };
+
     } catch (error) {
         console.error("Erreur lors de la récupération du projet par chemin :", error);
         return {
             success: false,
-            error: "Échec de la récupération du projet. Vérifiez la connexion à la base de données."
+            error: "Échec de la récupération du projet. Erreur DB/réseau."
         };
     }
 }
