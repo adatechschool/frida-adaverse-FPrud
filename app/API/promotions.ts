@@ -4,8 +4,6 @@ import { db } from '@/lib/db';
 import { promotions } from '@/lib/schema';
 
 export async function getPromotions() {
-    console.log("Début de l'action : getPromotions");
-
     try {
         const allPromotions = await db.select({
             id: promotions.id,
